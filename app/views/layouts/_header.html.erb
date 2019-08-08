@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="header-menu row align-items-center">
+    <ul class="col-4 row pl-5">
+      <li class="mr-3"><%=link_to "マイ図鑑","/users/#{current_user.id}",class:"text-light" %></li>
+        <li class="mr-3"><%=link_to "動物登録",new_post_path,class:"text-light" %></li>
+        <li class="mr-3"><%=link_to "ユーザ検索",new_post_path,class:"text-light" %></li>
+        <li><%=link_to "その他",new_post_path,class:"text-light" %></li>
+    </ul>
+    <%=link_to "Animal Book",root_path,class:"col-4 py-auto header-title" %>
+    <ul class="col-4 row mr-3">
+      <li class="mr-3"><%=link_to "ログイン",new_user_session_path,class:"text-light" %></li>
+      <li class="mr-3"><%=link_to "新規登録",new_user_registration_path,class:"text-light" %></li>
+    </ul>
+  </div>
+  </ul>
+</div>

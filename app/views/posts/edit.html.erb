@@ -1,0 +1,21 @@
+<%=render '/layouts/header'%>
+
+<div class="new">
+  <div class="new-body">
+    <div class="">
+      <%= form_with(url: posts_path , method: :post, local:true) do |f| %>
+        <h3 class="text-center">
+          編集する
+        </h3>
+        <div class="mx-auto jutify-content-center">
+          <%= f.text_field :animal, value:@post.animal, class:"form-name w-75" %>
+          <%= f.file_field :image, value:@post.image, class:"form-info w-75" %>
+          <%= f.text_field :habitat, value:@post.habitat, class:"form-habitat w-75" %>
+          <%= f.text_area :detail, value:@post.detail, class:"form-detail w-75" %>
+          <%= f.select :rate, [["1",1],["2",2],["3",3],["4",4],["5",5]],{selected:@post.rate },class:"form-rate w-25" %>
+          <input type="submit" value="SENT" class="btn btn-primary center-block">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

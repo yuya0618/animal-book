@@ -1,0 +1,41 @@
+<div class="animal">
+    <div class="animal-menu">
+      <div class="animal-menu-name row">
+        <p class="animal-menu-name-text"><%= post.animal %></p>
+        <ul class="animal-menu-name-bar text-right">
+          <li class="animal-menu-bar__edit mr-3"><%= link_to '編集', "/posts/#{post.id}/edit" %></li>
+          <li class="animal-menu-bar__delete mr-3"><%= link_to '削除', "/posts/#{post.id}", method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="animal-photo">
+      <a href="posts/<%= post.id%>">
+        <div class="animal-photo-link-pic"style="background-image:url(<%= post.image %>)"></div>
+      </a>
+    </div>
+
+    <div class="animal-info">
+      <div class="animal-info-bar pl-3">
+        <li class="animal-info-bar-fav my-auto mr-2">❤️</li>
+        <li class="animal-info-bar-comment my-auto mr-2">🙆‍</li>
+        <li class="animal-info-bar-share my-auto mr-2">⏫</li>
+        <li class="animal-info-bar-colection my-auto">🎋</li>
+      </div>
+      <div class="animal-info-habitat py-auto pl-3">
+        <p class="animal-info-habitat-text">
+          生息地：<%= post.habitat %>
+        </p>
+      </div>
+      <div class="animal-info-detail pl-3">
+        <p class="animal-info-detail-text">
+          特徴  ：<%= post.detail %>
+        </p>
+      </div>
+      <div class="animal-info-rate pl-3">
+        <p class="animal-info-rate-text">
+          レア度：<%= post.rate %>
+        </p>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+
+<div class="top">
+  <div class="image">
+    <div class="menu">
+      <ul class="list list-left row pt-3 pl-5">
+        <% if user_signed_in? %>
+          <li class="mr-3"><%=link_to "マイ図鑑","/users/#{current_user.id}",class:"text-light" %></li>
+        <% end %>
+          <li class="mr-3"><%=link_to "動物登録",new_post_path,class:"text-light" %></li>
+          <li class="mr-3"><%=link_to "ユーザ検索",new_post_path,class:"text-light" %></li>
+          <li><%=link_to "その他",new_post_path,class:"text-light" %></li>
+      </ul>
+      <ul class="list list-right pt-3 mr-3">
+        <% if user_signed_in? %>
+          <li class="mr-3"><%=link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light" %></li>
+        <% else %>
+          <li class="mr-3"><%=link_to "ログイン",new_user_session_path,class:"text-light" %></li>
+          <li class="mr-3"><%=link_to "新規登録",new_user_registration_path,class:"text-light" %></li>
+        <% end %>
+      </ul>
+    </div>
+    </header>
+    </ul>
+
+    <h1 class="title display-1">
+      Animal Book
+    </h1>
+    <p class="text">まだ見ぬ動物との出会いを求めて</p>
+  </div>
+</div>
+
+
+<div class="animals row">
+  <%= render @posts %>
+  <div class="footer pt-5">
+    <p class="footer-text mb-0">Animal Book  @2019</p>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+<%=render '/layouts/header'%>
+
+<div class="new">
+  <div class="new-body">
+    <div class="">
+      <%= form_with(url: posts_path , method: :post, local:true) do |f| %>
+        <h3 class="text-center">
+          投稿する
+        </h3>
+        <div class="mx-auto jutify-content-center">
+          <%= f.text_field :animal, placeholder:"名前", class:"form-name w-75" %>
+          <%= f.file_field :image, placeholder:"Image Url", class:"form-info w-75" %>
+          <%= f.text_field :habitat, placeholder:"出逢った場所", class:"form-habitat w-75" %>
+          <%= f.text_area :detail, placeholder:"特徴", class:"form-detail w-75" %>
+          <%= f.select :rate, [["1",1],["2",2],["3",3],["4",4],["5",5]],class:"form-rate w-25" %>
+          <%# <%= f.check_box :wild, class:"form-detail w-75" %>
+          <%# <%= label_tag :wild, "野生" %>
+          <input type="submit" value="SENT" class="btn btn-primary center-block">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
