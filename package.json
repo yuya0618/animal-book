@@ -2,7 +2,6 @@
   "name": "animal-book",
   "private": true,
   "dependencies": {
-    "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.3.1",
@@ -13,6 +12,41 @@
     "react_ujs": "^2.5.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.1.0",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
-  }
+  },
+  "description": "Animal Book",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "webpack": "webpack -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuya0618/animal-book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuya0618/animal-book/issues"
+  },
+  "homepage": "https://github.com/yuya0618/animal-book#readme"
 }

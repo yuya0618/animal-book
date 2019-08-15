@@ -1,5 +1,12 @@
 @import "config/reset";
 @import "bootstrap";
 @import "posts/posts";
-@import "header";
 @import "posts/new";
+@import "posts/show";
+@import "posts/rank";
+@import "users/users";
+@import "header";
+@import "footer";
+@import 'cropper';
+@import 'triming';
+@import 'font-awesome';

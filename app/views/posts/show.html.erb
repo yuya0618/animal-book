@@ -1,4 +1,42 @@
-<p id="notice"><%= notice %></p>
+<%=render '/layouts/header'%>
+<div class="show row">
+  <div class="animal mt-5">
+    <div class="animal-name py-auto pl-3">
+      <p class="animal-name-text">
+        <%= @post.animal %>
+      </p>
+    </div>
+    <div class="animal-photo">
+      <div class="animal-photo-pic"style="background-image:url(<%= @post.image %>)">
+      </div>
+    </div>
+    <div class="animal-info">
+      <div class="animal-info-habitat py-4 pl-3">
+        <p class="animal-info-habitat-text">
+          生息：<%= @post.habitat %>
+        </p>
+      </div>
+      <div class="animal-info-detail py-4 pl-3">
+        <p class="animal-info-detail-text">
+          特徴：<%= @post.detail %>
+        </p>
+      </div>
+      <div class="animal-info-hunter py-4 pl-3">
+        <p class="animal-info-hunter-text">
+          HUNTER：<%= @post.user.name %> さん
+        </p>
+      </div>
+    </div>
+    <div class="show-fav row">
+      <ul class="col-12 col-md-6 favbar row py-2", id="likes_buttons_<%= @post.id %>">
+        <%= render partial: 'likes/like', locals: { post: @post} %>
+      </ul>
+      <ul class="favbar row col-6 py-2 d-none d-md-block", id="likes_buttons_<%= @post.id %>">
+        <p class="px-5 mt-3">コメント一覧</p>
+      </ul>
+    </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  </div>
+</div>
+
+<%=render '/layouts/footer'%>

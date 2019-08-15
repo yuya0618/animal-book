@@ -1,39 +1,72 @@
-
 <div class="top">
   <div class="image">
     <div class="menu">
-      <ul class="list list-left row pt-3 pl-5">
-        <% if user_signed_in? %>
-          <li class="mr-3"><%=link_to "マイ図鑑","/users/#{current_user.id}",class:"text-light" %></li>
-        <% end %>
-          <li class="mr-3"><%=link_to "動物登録",new_post_path,class:"text-light" %></li>
-          <li class="mr-3"><%=link_to "ユーザ検索",new_post_path,class:"text-light" %></li>
-          <li><%=link_to "その他",new_post_path,class:"text-light" %></li>
-      </ul>
-      <ul class="list list-right pt-3 mr-3">
-        <% if user_signed_in? %>
-          <li class="mr-3"><%=link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light" %></li>
-        <% else %>
-          <li class="mr-3"><%=link_to "ログイン",new_user_session_path,class:"text-light" %></li>
-          <li class="mr-3"><%=link_to "新規登録",new_user_registration_path,class:"text-light" %></li>
-        <% end %>
-      </ul>
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="menu" class="collapse navbar-collapse image-nav pt-0">
+          <div class="image-nav-list">
+            <ul class="list list-left row pt-3 pl-5">
+              <% if user_signed_in? %>
+                <li class="mr-3"><%=link_to "マイ図鑑","/users/#{current_user.id}",class:"text-light" %></li>
+              <% end %>
+                <li class="mr-3"><%=link_to "動物登録",new_post_path,class:"text-light" %></li>
+                <li class="mr-3"><%=link_to "検索",new_post_path,class:"text-light" %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+          <ul class="list list-right pt-3 mr-3">
+            <% if user_signed_in? %>
+              <li class="mr-3"><%=link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light" %></li>
+            <% else %>
+              <li class="mr-3"><%=link_to "ログイン",new_user_session_path,class:"text-light" %></li>
+              <li class="mr-3"><%=link_to "新規登録",new_user_registration_path,class:"text-light" %></li>
+            <% end %>
+          </ul>
     </div>
-    </header>
-    </ul>
 
     <h1 class="title display-1">
-      Animal Book
+      Animal Hunter
     </h1>
     <p class="text">まだ見ぬ動物との出会いを求めて</p>
   </div>
 </div>
 
-
-<div class="animals row">
-  <%= render @posts %>
-  <div class="footer pt-5">
-    <p class="footer-text mb-0">Animal Book  @2019</p>
+<div class="wrapper row">
+  <div class="col-1">
+  </div>
+  <div class="animals col-10 col-lg-6 mt-5 mb-5 row">
+    <h3 class="head-title">新着図鑑</h3>
+    <%= render @posts %>
+  </div>
+  <div class="d-none col-1 d-md-block">
+  </div>
+  <div class="ranking col-3 d-none mb-5 mt-5 d-lg-block">
+  <h3 class="rank-title">ミタイランキング</h3>
+  <% @ranks.each.with_index(1) do |rank,i| %>
+    <div class="ranking-animal">
+      <div class="ranking-animal-num my-2 ml-3">
+        <p>第<%= i %>位
+      </div>
+      <div class="ranking-animal-image">
+        <a href="posts/<%= rank.id %>">
+          <div class="ranking-animal-image-pic"style="background-image:url(<%= rank.image %>)"></div>
+        </a>
+      </div>
+      <div class="ranking-animal-like mt-3">
+        <ul class="row">
+          <button type="button" class="btn btn-primary ml-3 disabled">ミタイ</button>
+          <li class="ml-3 my-auto"><%= rank.likes.count %>件</li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  </div>
+  </div>
+  <div class="d-none col-1 d-md-block">
   </div>
 </div>
 
+<%=render '/layouts/footer'%>
