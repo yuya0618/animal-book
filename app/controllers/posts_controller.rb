@@ -4,17 +4,18 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC")
+    @like = Like.new
+    @ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
   end
 
   def create
-    Post.create(animal: post_params[:animal], image: post_params[:image], habitat: post_params[:habitat], detail: post_params[:detail], rate: post_params[:rate], user_id: post_params[:user_id])
+    Post.create(animal: post_params[:animal], image: post_params[:image], habitat: post_params[:habitat], detail: post_params[:detail], user_id: post_params[:user_id])
     redirect_to root_path
   end
 
@@ -22,7 +23,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update if @post.user_id == current_user.id
+    post = Post.find(params[:id])
+    post.update(post_params) if @post.user_id == current_user.id
     redirect_to root_path
     # respond_to do |format|
     #   if @post.update(post_params)

@@ -4,15 +4,26 @@
   width: 100%;
   position: fixed;
   top:0;
+  z-index: 3;
   .header-menu{
     display: flex;
     justify-content: space-between;
+    .navbar{
+      background-color:rgb(3, 182, 41);
+      min-width: 130px;
+      &-contents{
+        background-color:rgb(3, 182, 41);
+      }
+    }
     .header-title{
       color: antiquewhite;
       font-family: fantasy;
       line-height: 60px;
       font-size: 43px;
       font-weight: bold;
+      text-align: center;
+    }
+    &-title{
       text-align: center;
     }
   }

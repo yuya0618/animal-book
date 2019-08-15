@@ -1,0 +1,14 @@
+<li class="px-5 mt-3 col-8">
+  <% if current_user.already_liked?(post) %>
+    <%= link_to post_like_path(post), method: :delete, remote: true do %>
+      <button type="button" class="btn btn-info btn-lg">ミタイ済</button>
+    <% end %>
+  <% else %>
+    <%= link_to post_likes_path(post), method: :post, remote: true do %>
+      <button type="button" class="btn btn-primary btn-lg">ミタイ</button>
+    <% end %>
+  <% end %>
+</li>
+<li class="pr-5 mt-3 col-4">
+  ：<%= post.likes.count %>
+</li>

@@ -1,0 +1,53 @@
+.show{
+  padding-top:80px;
+  background-color: #f3f3f3;
+  .animal{
+    height: 800px;
+    width: 800px;
+    margin: 0 auto;
+    border: 2px solid lightgray;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px;
+    &-name{
+      margin: auto;
+      color:black;
+      line-height: 50px;
+      text-align: center;
+      border-bottom: 1px solid lightgray;
+      &-text{
+        font-family: serif;
+        font-size: 23px;
+        font-weight: bold;
+      }
+    }
+    &-photo{
+      height: 50%;
+      width: 400px;
+      margin: 400px;
+      margin: 0 auto;
+      &-pic{
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        border:1px solid lightgrey;
+        border-radius: 3px;
+      }
+    }
+    &-info{
+      border: 1px solid lightgray;
+      border-radius: 4px;
+      height:250px;
+      overflow: scroll;
+      padding: 10px;
+    }
+    .show-fav{
+      display: flex;
+        height: 90px;
+      .favbar{
+        font-size: 23px;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -8,6 +8,13 @@
     .menu{
       display: flex;
       justify-content: space-between;
+      .image-nav{
+        background-image: url("sheep.jpg");
+        &-list{
+          background-color:rgba(7, 255, 60, 0.45);
+          height: 100%;
+        }
+      }
       .list{
         display: flex;
         font-size: 20px;
@@ -32,114 +39,96 @@
   }
 }
 
-.animals{
-  padding-top: 80px;
-  background-color: #f5f5f3;
-  min-height: 300px;
-  .animal{
-    height: 600px;
-    width: 600px;
-    margin: auto;
-    border: 2px solid lightgray;
-    margin-bottom: 40px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px;
-    &-menu{
-      display: flex;
-      border-bottom: 1px solid lightgray;
-      height: 50px;
-      &-name{
-        margin: auto;
-        color:black;
-        line-height: 50px;
-        &-text{
-          font-family: serif;
-          font-size: 23px;
-          font-weight: bold;
-        }
-        &-bar{
-          float: right;
-          display: flex;
-          &__edit{
-            color: black;
-          }
-          &__delete{
-            color: black;
-          }
-        }
-      }
-    }
-    &-photo{
-      height: 300px;
-      width:100%;
-      border-bottom: 1px solid lightgray;
-      &-link{
-        height: 100%;
-        width: 100%;
-        display: inline-block;
-        &-pic{
-          height: 100%;
-          background-size: cover;
-          background-color:rgba(7, 255, 60, 0.1)
-        }
-      }
-    }
-    &-info{
-      height: calc(100% - 350px);
-      font-family: serif;
+.wrapper{
+  background-color: #f3f3f3;
+  .animals{
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    .head-title{
       font-weight: bold;
-      &-bar{
-        height: 15%;
-        display: flex;
-        list-style: none;
-        border-bottom: 1px solid lightgray;
-        &-fav{
-          color: black;
-        }
-        &-comment{
-          color: black;
-        }
-        &-share{
-          color: black;
-        }
-        &-collection{
-          color: black;
-        }
-      }
-      &-habitat{
-        height: 20%;
-        padding-top: 10px;
-        &-text{
-          font-size: 18px;
-          text-decoration: underline;
-        }
-      }
-      &-detail{
-        height: 50%;
-        padding-top: 10px;
-        &-text{
-          font-size: 18px;
-          text-decoration: underline;
-        }
-      }
-      &-rate{
-        height: 15%;
-        padding-top: 10px;
-        &-text{
-          font-size: 18px;
-          letter-spacing: 3px;
-          font-family: 'sanlif';
-        }
-      }
+      font-family: cursive;
     }
-  }
-  .footer{
-    height: 80px;
-    width: 100%;
-    text-align: center;
-    &-text{
-      font-family: fantasy;
-      font-size: 20px;
+    .animal{
+      min-height: 300px;
+      width: 100%;
+      margin: 0 auto;
+      border: 2px solid lightgray;
+      margin-bottom: 10px;
+      border-radius: 7px;
+      box-shadow: 0px 0px 10px;
+      &-menu{
+        display: flex;
+        border-bottom: 1px solid lightgray;
+        height: 50px;
+      }
+      &-photo{
+        margin: 10px;
+        height: auto;
+        &-link{
+          height: auto;
+          width: 100%;
+          display: inline-block;
+          &-pic{
+            height: 100%;
+            background-size: cover;
+            border:1px solid lightgrey;
+            border-radius: 3px;
+          }
+        }
+      }
+      &-info{
+        font-family: serif;
+        font-weight: bold;
+        overflow: scroll;
+        height: 250px;
+        &-bar{
+          height: 15%;
+          display: flex;
+          list-style: none;
+          border-bottom: 1px solid lightgray;
+          &-fav{
+            color: black;
+          }
+          &-comment{
+            color: black;
+          }
+          &-share{
+            color: black;
+          }
+          &-collection{
+            color: black;
+          }
+        }
+        &-animal{
+          height: 25%;
+          padding-top: 8px;
+          &-text{
+            font-size: 18px;
+            text-decoration: underline;
+          }
+        }
+        &-habitat{
+          height: 25%;
+          padding-top: 8px;
+          &-text{
+            font-size: 18px;
+            text-decoration: underline;
+          }
+        }
+        &-detail{
+          height: 50%;
+          padding-top: 8px;
+          &-text{
+            font-size: 18px;
+            text-decoration: underline;
+          }
+        }
+      }
+      .favbar{
+        display: flex;
+        width: 100%;
+      }
     }
   }
 }
