@@ -10,9 +10,9 @@
             <ul class="list list-left row pt-3 pl-5">
               <% if user_signed_in? %>
                 <li class="mr-3"><%=link_to "マイ図鑑","/users/#{current_user.id}",class:"text-light" %></li>
-              <% end %>
                 <li class="mr-3"><%=link_to "動物登録",new_post_path,class:"text-light" %></li>
                 <li class="mr-3"><%=link_to "検索",new_post_path,class:"text-light" %></li>
+              <% end %>
             </ul>
           </div>
         </div>
