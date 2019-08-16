@@ -1,10 +1,25 @@
 <%=render '/layouts/header'%>
 <div class="show row">
   <div class="animal mt-5">
-    <div class="animal-name py-auto pl-3">
-      <p class="animal-name-text">
+    <div class="animal-name row py-auto pl-3">
+      <p class="col-2"></p>
+      <p class="animal-name-text col-8">
         <%= @post.animal %>
       </p>
+      <p class="col-1"></p>
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+      <nav class="navbar navbar-light col-1">
+        <button class="navbar-toggler animal-name-menu col-2" data-toggle="collapse" data-target="#editMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="editMenu" class="collapse navbar-collapse navbar-contents pt-0">
+          <ul class="mt-1">
+            <li class=""><%=link_to "編集",edit_post_path,class:"" %></li>
+            <li class=""><%=link_to "削除",post_path, method: :delete,class:"" %></li>
+          </ul>
+        </div>
+      </nav>
+      <% end %>
     </div>
     <div class="animal-photo">
       <div class="animal-photo-pic"style="background-image:url(<%= @post.image %>)">

@@ -2,7 +2,7 @@
 
 <div class="new">
   <div class="new-body">
-    <div class="">
+    <div class="new-body-box">
       <%= form_with(url: posts_path , method: :post, local:true) do |f| %>
         <h3 class="text-center">
           投稿する
@@ -13,12 +13,12 @@
           <%= hidden_field_tag "action", params[:action] %>
           <%= hidden_field_tag "route", "users" %>
           <%# 隠したinputタグと紐付けしたdiv %>
-          <div class="field image w-75">
-            <div id="img_field", onClick="$('#upicon').click()">
+          <div class="field image mx-auto w-75">
+            <div id="img_field", onClick = '$("#upicon").click()'>
               <i class="fa fa-image"></i><i class="fas fa-file-upload add"></i>
             </div>
             <%# inputのfileタグは隠す %>
-            <%= f.file_field :image, class: "icon", style: "display:none;", id: "upicon"%>
+            <%= f.file_field :image, class: "icon", style: "display:none;", id:"upicon"%>
           </div>
           <%# 画像選択後のトリミング画面用div %>
           <div class="overlay" style="display:none;" >
@@ -27,12 +27,11 @@
           <div class="select_icon_btn">決定</div>
           </div>
 
-          <%# <%= f.file_field :image, placeholder:"Image Url", class:"form-info w-75" %>
           <%= f.text_field :habitat, placeholder:"出逢った場所", class:"form-habitat w-75", id:"habitat" %>
           <%= f.text_area :detail, placeholder:"特徴", class:"form-detail w-75", id:"detail" %>
           <%# <%= f.check_box :wild, class:"form-detail w-75" %>
           <%# <%= label_tag :wild, "野生" %>
-          <input type="submit" value="SENT" class="btn btn-primary center-block">
+          <input type="submit" value="SENT" class="btn btn-primary center-block w-75">
         </div>
       <% end %>
     </div>

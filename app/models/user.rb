@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
-#postがuserに依存して、もしユーザーがデーターベースから削除されたらユーザーが投稿した全ての投稿も削除される
+#postがuserに依存して、もしユーザーがデーターベースから削除されたらユーザーが投稿した全ての投稿も削除される→dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
