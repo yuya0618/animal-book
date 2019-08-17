@@ -1,0 +1,46 @@
+<%=render '/layouts/header'%>
+
+<div class="edit-user row pb-5">
+  <%= form_with(url: user_path , method: :patch, local:true) do |f| %>
+    <h3 class="text-center">
+      ユーザー編集
+    </h3>
+    <div class="card col-10 mt-5 px-0 mx-auto row">
+        <div class="card-left">
+          <div class="card-left-top ml-5 mb-5 row">
+            <div class ="card-left-top-icon col-4">
+              <div class="card-left-top-icon-pic mt-3">
+              </div>
+            </div>
+            <div class="card-left-top-name mt-4 col-7">
+              <%= f.text_field :name, value:@user.name, class:"text-center" %>
+            </div>
+          </div>
+          <div class="card-left-bottom ml-5 mt-3 px-1 row">
+            <div class="profile row mb-3">
+              <p class="col-4">プロフィール：</p>
+              <%= f.text_area :profile, value:@user.profile, class:"profile-text col-7" %>
+            </div>
+            <div class="spot row mb-3">
+              <p class="col-4">主な狩場：</p>
+              <%= f.text_field :spot, value:@user.spot, class:"spot-text col-7" %>
+            </div>
+            <div class="favorite row mb-3">
+              <p class="col-4">好きな動物：</p>
+              <%= f.text_field :favorite, value:@user.favorite, class:"favorite-text col-7" %>
+            </div>
+            <div class="email row mb-3">
+              <p class="col-4">Email：</p>
+              <%= f.text_field :email, value:@user.email, class:"email-text col-7" %>
+            </div>
+
+            <input type="submit" value="更新する" class="btn btn-primary mb-2 p-3">
+
+
+
+          </div>
+        </div>
+
+    </div>
+  <% end %>
+</div>

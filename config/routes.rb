@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: "users/sessions",
   }
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   resources :posts do
     resources :likes, only: [:create, :destroy]
   end
