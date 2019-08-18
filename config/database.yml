@@ -49,6 +49,12 @@ test:
 #
 production:
   <<: *default
-  database: animal-book_production
-  username: animal-book
-  password: <%= ENV['ANIMAL-BOOK_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+# production:
+#   <<: *default
+#   database: animal-book_production
+#   username: animal-book
+#   password: <%= ENV['ANIMAL-BOOK_DATABASE_PASSWORD'] %>
