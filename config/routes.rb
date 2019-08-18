@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'posts#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: "users/sessions",
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions'
   }
   resources :users, only: [:show, :edit, :update]
   resources :posts do
