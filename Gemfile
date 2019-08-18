@@ -75,3 +75,4 @@ gem 'font-awesome-rails'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
+gem "rails_12factor", group: :production
