@@ -41,20 +41,21 @@
   </div>
 
   <div class="text-center pt-5 col-12">
-    <h3 class="hunt-title pt-5 pb-3">〜<%= @name %>さんのHunt一覧〜</h3>
+    <h3 class="hunt-title pt-5 pb-3">〜<%= @user.name %>さんのHunt一覧〜</h3>
   </div>
 
   <div class="hunt row col-10 mx-auto">
     <ul class="hunt-head nav nav-tabs row mx-auto col-12">
       <li class="nav-item col-6">
-        <a href="#hunt-list" class="nav-link active text-center" data-toggle="tab">登録動物</a>
+        <a href="#hunt" class="nav-link text-center active" data-toggle="tab" role="tab" aria-controls="nav-hunt" aria-selected="true">登録動物</a>
       </li>
       <li class="nav-item col-6">
-        <a href="#like-list" class="nav-link text-center" data-toggle="tab">ミタイ動物</a>
+        <a href="#like" class="nav-link text-center" data-toggle="tab" role="tab" aria-controls="nav-like" aria-selected="true">ミタイ動物</a>
       </li>
     </ul>
+
     <div class="tab-content w-100 mt-0 pt-0 h-100 pb-5">
-      <div id="hunt-list"  class="hunt-list tab-pane active w-100 h-100 mx-auto row">
+      <div id="hunt"  class="hunt-list tab-pane w-100 h-100 mx-auto row active" role="tabpanel" aria-labelledby="nav-hunt-tab">
         <% @posts.each do |post| %>
           <div class="hunt-list-image col-4">
             <%=link_to post_path(post.id) do %>
@@ -64,7 +65,7 @@
         <% end %>
       </div>
 
-      <div id="like-list" class="like-list tab-pane w-100 mx-auto row">
+      <div id="like" class="like-list tab-pane w-100 mx-auto row" role="tabpanel" aria-labelledby="nav-like-tab" >
         <p>hello</P>
       </div>
 
