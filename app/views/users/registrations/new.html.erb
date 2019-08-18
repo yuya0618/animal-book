@@ -1,34 +1,50 @@
-<h2>Sign up</h2>
+<div class="login">
+  <div class="login-form">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="login-form-head text-center pt-3">
+        <h4 class="login-form-head-title">Animal Hunter</h4>
+      </div>
+      <div class="login-form-content text-center">
+        <div class="login-form-content-top">
+          <p>SNSアカウントで登録</p>
+          <%= link_to user_google_oauth2_omniauth_authorize_path,class: "google contents__btn" do %>
+            <i class="fa fa-google"></i> Googleで登録
+          <% end %>
+          <%= link_to user_facebook_omniauth_callback_path,class: "facebook contents__btn ml-1" do %>
+            <i class="fa fa-facebook"></i> Facebookで登録
+          <% end %>
+          <%= link_to user_twitter_omniauth_authorize_path,class: "twitter contents__btn ml-1" do %>
+            <i class="fa fa-twitter"></i> Twitterで登録
+          <% end %>
+        </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="field pt-2">
+              <%= f.label :名前 %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            </div>
+            <div class="field pt-2">
+              <%= f.label :Eメール %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="field pt-2">
+              <%= f.label :パスワード %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            <div class="field pt-2">
+              <%= f.label :パスワード（確認） %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="actions pt-2">
+              <%= f.submit "登録する",class:"btn btn-primary"%>
+            </div>
+          </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

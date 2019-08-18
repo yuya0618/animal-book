@@ -1,0 +1,50 @@
+.login{
+  background-color: #f3f3f3;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top:0;
+  &-form{
+    background-color: #fff;
+    margin: 100px auto;
+    width:60%;
+    min-height: 500px;
+    &-head{
+      &-title{
+        color:rgb(0, 163, 35);
+        font-family: fantasy;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 30px;
+        letter-spacing: 3px;
+      }
+    }
+    &-content{
+      &-top{
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 18px;
+        .google{
+          background-color: firebrick;
+          border-radius: 3px;
+          padding: 3px 6px;
+          color:antiquewhite;
+          display: inline-block;
+        }
+        .facebook{
+          background-color: blue;
+          border-radius: 3px;
+          padding: 3px 6px;
+          color:antiquewhite;
+          display: inline-block;
+        }
+        .twitter{
+          background-color: skyblue;
+          border-radius: 3px;
+          padding: 3px 6px;
+          color:antiquewhite;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

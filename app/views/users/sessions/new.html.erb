@@ -1,32 +1,44 @@
-<h2>Log in</h2>
+<div class="login">
+  <div class="login-form">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-    <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="login-form-head text-center pt-3">
+        <h4 class="login-form-head-title">Animal Hunter</h4>
+      </div>
+      <div class="login-form-content text-center">
+        <div class="login-form-content-top">
+          <p>SNSアカウントでログイン</p>
+          <%= link_to user_google_oauth2_omniauth_authorize_path,class: "google contents__btn" do %>
+            <i class="fa fa-google"></i> Googleでログイン
+          <% end %>
+          <%= link_to user_facebook_omniauth_callback_path,class: "facebook contents__btn ml-1" do %>
+            <i class="fa fa-facebook"></i> Facebookでログイン
+          <% end %>
+          <%= link_to user_twitter_omniauth_authorize_path,class: "twitter contents__btn ml-1" do %>
+            <i class="fa fa-twitter"></i> Twitterで登録
+          <% end %>
+        </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="field pt-2">
+              <%= f.label :名前 %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            </div>
+            <div class="field pt-2">
+              <%= f.label :Eメール %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="field pt-2">
+              <%= f.label :パスワード %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+            <div class="actions pt-2">
+              <%= f.submit "ログインする",class:"btn btn-primary"%>
+            </div>
+          </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

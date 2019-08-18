@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable,
-        :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+        :omniauthable, omniauth_providers: %i[facebook google_oauth2 twitter]
 #postがuserに依存して、もしユーザーがデーターベースから削除されたらユーザーが投稿した全ての投稿も削除される→dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
