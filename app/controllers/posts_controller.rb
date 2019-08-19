@@ -15,8 +15,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(animal: post_params[:animal], image: post_params[:image], habitat: post_params[:habitat], detail: post_params[:detail], user_id: post_params[:user_id])
-    redirect_to root_path
+    if post_params[:image]
+      Post.create(animal: post_params[:animal], image: post_params[:image], habitat: post_params[:habitat], detail: post_params[:detail], user_id: post_params[:user_id])
+      redirect_to root_path
+    else
+      flash.now[:alert] = "画像は必須項目です"
+      render :new
+    end
   end
 
   def edit

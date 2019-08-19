@@ -3,7 +3,7 @@
 
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="login-form-head text-center pt-3">
-        <h4 class="login-form-head-title">Animal Hunter</h4>
+          <%=link_to "Animal Book",root_path,class:"login-form-head-title" %>
       </div>
       <div class="login-form-content text-center">
         <div class="login-form-content-top">
@@ -39,7 +39,7 @@
               <%= f.label :パスワード（確認） %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             </div>
-
+            <%=link_to "ログイン",new_user_session_path,class:"" %>
             <div class="actions pt-2">
               <%= f.submit "登録する",class:"btn btn-primary"%>
             </div>
