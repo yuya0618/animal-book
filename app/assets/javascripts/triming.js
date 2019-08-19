@@ -59,7 +59,6 @@ $(function(){
   function sending(){
     var formData = new FormData();
     const route = $('#route').val();
-    const id = $('#idParams').val();
     const action = $('#action').val();
 
 　　 // CSRF対策（独自のajax処理を行う場合、head内にあるcsrf-tokenを取得して送る必要がある）
@@ -101,31 +100,22 @@ $(function(){
 
   // 入力されたformデータ（textやradioなど）を取得する関数作成
   function usersVal(formData){
-    animal$('#animal').val();
+    animal = $('#animal').val();
     habitat = $('#habitat').val();
     detail = $('#detail').val();
-    want_to_advertise = $(':radio[name="want_to_advertise"]:checked').val();
-    want_to_be_advertised = $(':radio[name="want_to_be_advertised"]:checked').val();
 
     if (blob != null){
-      formData.append('icon', blob);
+      formData.append('image', blob);
     }
     formData.append('animal', animal);
-    formData.append('habitat', email);
-    formData.append('detail', twitter);
-    if (want_to_advertise != null){
-      formData.append('want_to_advertise', want_to_advertise);
-    }
-    if (want_to_be_advertised != null){
-      formData.append('want_to_be_advertised', want_to_be_advertised);
-    }
+    formData.append('habitat', habitat);
+    formData.append('detail', detail);
     return formData
   }
   // 画像選択時
   $('#upicon').on('change', function(e){
     file = e.target.files[0];
     reader = new FileReader();
-
     if(file.type.indexOf('image') < 0){
       return false;
     };
@@ -160,7 +150,7 @@ $(function(){
   });
 
   // コントローラーへ送信
-  $('.submit_btn').on('click', function(){
+  $('.formsubmit').on('click', function(){
     blobing();
   });
 });

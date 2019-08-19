@@ -16,8 +16,11 @@ class PostsController < ApplicationController
 
   def create
     if post_params[:image]
-      Post.create(animal: post_params[:animal], image: post_params[:image], habitat: post_params[:habitat], detail: post_params[:detail], user_id: post_params[:user_id])
-      redirect_to root_path
+        if Post.create(animal: post_params[:animal], image: post_params[:image], habitat: post_params[:habitat], detail: post_params[:detail], user_id: post_params[:user_id])
+          respond_to do |format|
+            format.js {render ajax_redirect_to(root_path)}
+          end
+        end
     else
       flash.now[:alert] = "画像は必須項目です"
       render :new
@@ -55,5 +58,9 @@ class PostsController < ApplicationController
 
     def post_params
       params.permit(:animal, :image, :habitat,:detail).merge(user_id: current_user.id)
+    end
+
+    def ajax_redirect_to(redirect_uri)
+      { js: "window.location.replace('#{redirect_uri}');" }
     end
 end

@@ -3,7 +3,7 @@
 <div class="new">
   <div class="new-body">
     <div class="new-body-box">
-      <%= form_with(url: posts_path , method: :post, local:true) do |f| %>
+      <%= form_with(model: @post, url: posts_path , method: :post) do |f| %>
         <h3 class="text-center">
           投稿する
         </h3>
@@ -11,10 +11,10 @@
           <%= f.text_field :animal, placeholder:"名前", class:"form-name w-75", id:"animal" %>
           <%# ajax処理で使う分のパラメータをhidden_fieldで持っておく %>
           <%= hidden_field_tag "action", params[:action] %>
-          <%= hidden_field_tag "route", "users" %>
+          <%= hidden_field_tag "route", "posts" %>
           <%# 隠したinputタグと紐付けしたdiv %>
           <div class="field image mx-auto w-75">
-            <div id="img_field", onClick = "$('#upicon').click()">
+            <div id="img_field" onClick="$('#upicon').click()">
               <i class="fa fa-image"></i><i class="fas fa-file-upload add"></i>
             </div>
             <%# inputのfileタグは隠す %>
@@ -31,7 +31,7 @@
           <%= f.text_area :detail, placeholder:"特徴", class:"form-detail w-75", id:"detail" %>
           <%# <%= f.check_box :wild, class:"form-detail w-75" %>
           <%# <%= label_tag :wild, "野生" %>
-          <input type="submit" value="SENT" class="btn btn-primary center-block w-75">
+          <%= f.submit "SENT", class:"submit btn btn-primary center-block w-75" %>
         </div>
       <% end %>
     </div>
