@@ -2,17 +2,20 @@ class LikesController < ApplicationController
   before_action :set_post, only: [:create, :destroy]
 
   def create
-    @like = current_user.likes.create(post_id: params[:post_id])
-    redirect_to post_path(@posts)
+    @like = Like.create(user_id: current_user.id, post_id: params[:post_id])
+    @likes = Like.where(post_id: params[:post_id])
+    @posts = Post.all
   end
 
   def destroy
-    @like = Like.find_by(post_id: params[:post_id], user_id: current_user.id)
-    @like.destroy
+    like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
+    like.destroy
+    @likes = Like.where(post_id: params[:post_id])
+    @posts = Post.all
   end
 
   private
   def set_post
-    @posts = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
   end
 end

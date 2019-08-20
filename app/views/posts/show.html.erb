@@ -43,10 +43,10 @@
       </div>
     </div>
     <div class="show-fav row">
-      <ul class="col-12 col-md-6 favbar row py-2", id="likes_buttons_<%= @post.id %>">
-        <%= render partial: 'likes/like', locals: { post: @post} %>
+      <ul class="col-12 col-md-6 favbar row py-2", id="likes_buttons">
+        <%= render partial: 'likes/like', locals: { post: @post, like: @like} %>
       </ul>
-      <ul class="favbar row col-6 py-2 d-none d-md-block", id="likes_buttons_<%= @post.id %>">
+      <ul class="favbar row col-6 py-2 d-none d-md-block">
         <p class="px-5 mt-3">コメント一覧</p>
       </ul>
     </div>

@@ -21,8 +21,4 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
-
-  def already_liked?(post)
-    self.likes.exists?(post_id: post.id)
-  end
 end
