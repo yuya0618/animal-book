@@ -1,8 +1,8 @@
 <div class="row animal">
   <div class="animal-photo col-5">
-    <a href="posts/<%= post.id %>">
+    <%= link_to post_path(post) do %>
       <div class="animal-photo-link-pic"style="background-image:url(<%= post.image %>)"></div>
-    </a>
+    <% end %>
   </div>
   <div class="animal-info col-6">
     <div class="animal-info-animal py-3 pl-3">

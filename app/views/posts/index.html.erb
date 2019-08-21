@@ -40,9 +40,12 @@
   <div class="animals col-10 col-lg-6 mt-5 mb-5 row">
     <h3 class="head-title">新着図鑑</h3>
     <%= render @posts %>
+    <%= link_to "もっとみる", list_posts_path, class:"more-btn btn btn-success mx-auto mb-3 mt-3 w-50"%>
   </div>
+
   <div class="d-none col-1 d-md-block">
   </div>
+
   <div class="ranking col-3 d-none mb-5 mt-5 d-lg-block">
   <h3 class="rank-title">ミタイランキング</h3>
   <% @ranks.each.with_index(1) do |rank,i| %>

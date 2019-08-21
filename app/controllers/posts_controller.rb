@@ -3,13 +3,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user!,except:[:index]
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.order("created_at DESC").limit(5)
     @like = Like.new
     @ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
   def show
     @like = Like.where(user_id: current_user.id, post_id: params[:post_id])
+    @comments = @post.comments
   end
 
   def new
@@ -49,6 +50,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy if @post.user_id == current_user.id
     redirect_to root_path
+  end
+
+  def list
+    @posts = Post.page(params[:page]).per(10).order("created_at DESC")
   end
 
 

@@ -32,9 +32,10 @@
       margin: 400px;
       margin: 0 auto;
       &-pic{
-        height: 100%;
+        padding-top:100%;
         width: 100%;
         background-size: cover;
+        background-position: center;
         border:1px solid lightgrey;
         border-radius: 3px;
       }
@@ -52,7 +53,19 @@
       .favbar{
         font-size: 23px;
         height: 100%;
+        .comment-btn{
+          cursor: pointer;
+        }
       }
     }
+  }
+
+  .comment-container{
+    width: 800px;
+    margin: 0 auto;
+    border: 2px solid lightgray;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px;
   }
 }

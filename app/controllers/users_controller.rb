@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @posts = Post.where(user_id: current_user.id).order("created_at DESC")
+    @likes = Like.where(user_id: @user.id)
   end
 
   def edit

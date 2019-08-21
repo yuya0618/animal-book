@@ -122,27 +122,57 @@
     margin: 0 auto;
     background-color: white;
     overflow: scroll;
+    position: relative;
     &-head{
       height: 50px;
+      position: absolute;
+      top:0;
+      cursor: pointer;
+      &-left{
+        border-right: 1px solid gray;
+      }
+      li:hover{
+        background-color: lightblue;
+      }
+      .border-blue{
+        border-bottom: 5px solid blue;
+      }
     }
-    &-list{
-      display: flex;
-      &-image{
-        width: 33%;
-        height: auto;
-        padding: 10px;
-        &-pic{
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          border:1px solid lightgrey;
-          border-radius: 3px;
+    &-contents{
+      .hunt-animal{
+        margin-top: 70px;
+        overflow: scroll;
+        &-image{
+          width: 350px;
+          height: 350px;
+          padding: 10px;
+          &-pic{
+            background-size: cover;
+            background-position: center;
+            padding-top:100%;
+            border:1px solid lightgrey;
+            border-radius: 3px;
+          }
         }
-
+      }
+      .like-animal{
+        margin-top: 70px;
+        overflow: scroll;
+        &-image{
+          padding: 10px;
+          &-pic{
+            background-size: cover;
+            background-position: center;
+            padding-top:100%;
+            border:1px solid lightgrey;
+            border-radius: 3px;
+          }
+        }
       }
     }
   }
-
-
-
 }
+
+
+
+

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:show, :edit, :update]
   resources :posts do
+    collection do
+      get 'list'
+    end
+    resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
 

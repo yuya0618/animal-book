@@ -4,11 +4,14 @@
   width: 100%;
   position: fixed;
   top:0;
+  background-image:url("green.jpg");
+  background-size: cover;
+  background-position: center;
   &-form{
-    background-color: #fff;
+    background-color:ghostwhite;
     margin: 100px auto;
-    width:60%;
-    min-height: 500px;
+    width:400px;
+    height: 550px;
     &-head{
       &-title{
         color:rgb(0, 163, 35);

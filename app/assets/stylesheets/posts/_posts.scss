@@ -1,6 +1,7 @@
 .top{
   background-image: url("sheep.jpg");
   background-size: cover;
+  background-position: center;
   height: 600px;
   .image{
     background-color:rgba(7, 255, 60, 0.45);
@@ -70,8 +71,9 @@
           width: 100%;
           display: inline-block;
           &-pic{
-            height: 100%;
+            padding-top:100%;
             background-size: cover;
+            background-position: center;
             border:1px solid lightgrey;
             border-radius: 3px;
           }

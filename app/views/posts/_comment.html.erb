@@ -1,0 +1,26 @@
+<div class="comment-container mt-3">
+  <div class="comment-form pb-3">
+    <%= form_with(model: comment, url: post_comments_path(post), method: :post, id: "new_comment", local: true) do |f| %>
+      <div class="comment-form-top row w-100">
+        <%= f.text_area :text, placeholder:"コメントする", class:"comment_box w-75 ml-5 mt-3" %>
+        <%= f.submit "送信", class: "ml-4 mt-3 btn btn-primary btn-lg", id:"comment_submit" %>
+      </div>
+    <% end %>
+  </div>
+  <% if comments %>
+    <div class="comments">
+      <h5 class="ml-3 mb-3">＜コメント一覧＞</h5>
+      <% comments.each do |comment| %>
+        <p class="ml-3">
+          <strong><%= link_to comment.user.name, "#" %>：</strong>
+          <%= comment.text %>
+          <strong>
+          <% if comment.user_id == current_user.id %>
+            <%= link_to "削除", post_comment_path(post,comment), method: :delete, class:"ml-5 text-danger" %>
+          <% end %>
+          </strong>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

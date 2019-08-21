@@ -15,7 +15,7 @@
         <div id="editMenu" class="collapse navbar-collapse navbar-contents pt-0">
           <ul class="mt-1">
             <li class=""><%=link_to "編集",edit_post_path,class:"" %></li>
-            <li class=""><%=link_to "削除",post_path, method: :delete,class:"" %></li>
+            <li class=""><%=link_to "削除",post_path, method: :delete, data: {confirm: "投稿「#{@post.animal}」を削除します。よろしいですか？"} %></li>
           </ul>
         </div>
       </nav>
@@ -47,11 +47,13 @@
         <%= render partial: 'likes/like', locals: { post: @post, like: @like} %>
       </ul>
       <ul class="favbar row col-6 py-2 d-none d-md-block">
-        <p class="px-5 mt-3">コメント一覧</p>
+        <p class="comment-btn px-5 mt-3 btn btn-outline-success">コメント表示</p>
       </ul>
     </div>
-
   </div>
+
+  <%= render partial: 'comment', locals: { comment: @comment, post: @post, comments: @comments}%>
+
 </div>
 
 <%=render '/layouts/footer'%>
