@@ -51,6 +51,7 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
+  database: db/production.postgresql
   pool: 5
 
 # production:
