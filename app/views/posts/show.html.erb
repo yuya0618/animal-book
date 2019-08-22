@@ -25,7 +25,7 @@
       <div class="animal-photo-pic"style="background-image:url(<%= @post.image %>)">
       </div>
     </div>
-    <div class="animal-info">
+    <div class="animal-info mt-2">
       <div class="animal-info-habitat py-4 pl-3">
         <p class="animal-info-habitat-text">
           生息：<%= @post.habitat %>
@@ -38,12 +38,12 @@
       </div>
       <div class="animal-info-hunter py-4 pl-3">
         <p class="animal-info-hunter-text">
-          HUNTER：<%= @post.user.name %> さん
+          HUNTER：<%= link_to @post.user.name, user_path(@post.user) %> さん
         </p>
       </div>
     </div>
     <div class="show-fav row">
-      <ul class="col-12 col-md-6 favbar row py-2", id="likes_buttons">
+      <ul class="col-12 col-md-6 favbar row py-2 pl-5", id="likes_buttons">
         <%= render partial: 'likes/like', locals: { post: @post, like: @like} %>
       </ul>
       <ul class="favbar row col-6 py-2 d-none d-md-block">

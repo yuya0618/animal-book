@@ -3,35 +3,42 @@
 <div class="animals row">
   <h3 class="head-title pt-3 text-center pb-3 col-12">みんなの投稿一覧</h3>
   <% @posts.each do |post| %>
-  <div class="row animal col-6">
-    <div class="animal-photo col-5">
-      <%= link_to post_path(post) do %>
-        <div class="animal-photo-link-pic"style="background-image:url(<%= post.image %>)"></div>
-      <% end %>
-    </div>
-    <div class="animal-info col-6">
-      <div class="animal-info-animal py-3 pl-3">
-          <p class="animal-info-habitat-text">
-            名前：<%= post.animal %>
-          </p>
+  <div id="wrapper">
+    <div class="animal">
+      <div class="h-75 row">
+        <div class="animal-photo col-5">
+          <%= link_to post_path(post) do %>
+            <div class="animal-photo-link-pic"style="background-image:url(<%= post.image %>)"></div>
+          <% end %>
+        </div>
+        <div class="animal-info col-6">
+          <div class="animal-info-animal py-3 pl-3">
+              <p class="animal-info-habitat-text">
+                名前：<%= post.animal %>
+              </p>
+          </div>
+
+          <div class="animal-info-habitat py-3 pl-3">
+              <p class="animal-info-habitat-text">
+                生息：<%= post.habitat %>
+              </p>
+          </div>
+
+          <div class="animal-info-detail py-3 pl-3">
+              <p class="animal-info-detail-text">
+                特徴  ：<%= post.detail %>
+              </p>
+          </div>
+        </div>
       </div>
 
-      <div class="animal-info-habitat py-3 pl-3">
-          <p class="animal-info-habitat-text">
-            生息：<%= post.habitat %>
-          </p>
+      <div class="h-25">
+        <ul class="col-12 favbar row py-2", id="likes_buttons">
+          <%= render partial: 'likes/like', locals: { post: post, like: @like} %>
+        </ul>
       </div>
 
-      <div class="animal-info-detail py-3 pl-3">
-          <p class="animal-info-detail-text">
-            特徴  ：<%= post.detail %>
-          </p>
-      </div>
     </div>
-    <ul class="favbar row">
-      <button type="button" class="btn btn-primary ml-5 disabled">ミタイ</button>
-      <li class="ml-3 my-auto"><%= post.likes.count %>件</li>
-    </ul>
   </div>
   <% end %>
 </div>

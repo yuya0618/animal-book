@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
@@ -54,6 +55,7 @@ class PostsController < ApplicationController
 
   def list
     @posts = Post.page(params[:page]).per(10).order("created_at DESC")
+    @like = Like.where(user_id: current_user.id, post_id: params[:post_id])
   end
 
 

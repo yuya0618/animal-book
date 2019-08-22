@@ -3,7 +3,7 @@
 <div class="new">
   <div class="new-body">
     <div class="new-body-box">
-      <%= form_with(model: @post, url: posts_path , method: :post) do |f| %>
+        <%= form_for @post, url:posts_path, method: :post, remote: true do |f| %>
         <h3 class="text-center">
           投稿する
         </h3>
@@ -31,7 +31,7 @@
           <%= f.text_area :detail, placeholder:"特徴", class:"form-detail w-75", id:"detail" %>
           <%# <%= f.check_box :wild, class:"form-detail w-75" %>
           <%# <%= label_tag :wild, "野生" %>
-          <%= f.submit "SENT", class:"submit btn btn-primary center-block w-75" %>
+          <%= f.submit "SENT", class:"formsubmit btn btn-primary center-block w-75" %>
         </div>
       <% end %>
     </div>

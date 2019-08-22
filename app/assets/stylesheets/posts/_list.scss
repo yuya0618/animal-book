@@ -7,85 +7,94 @@
     font-family: cursive;
     font-size: 32px;
   }
-  .animal{
-    margin: 0 auto;
-    border: 2px solid lightgray;
-    margin-bottom: 10px;
-    border-radius: 7px;
-    box-shadow: 0px 0px 10px;
-    &-menu{
-      display: flex;
-      border-bottom: 1px solid lightgray;
-      height: 50px;
-    }
-    &-photo{
-      margin: 10px;
-      height: auto;
-      &-link{
-        height: auto;
-        width: 100%;
-        display: inline-block;
-        &-pic{
-          padding-top:100%;
-          background-size: cover;
-          background-position: center;
-          border:1px solid lightgrey;
-          border-radius: 3px;
-        }
-      }
-    }
-    &-info{
-      font-family: serif;
-      font-weight: bold;
-      overflow: scroll;
-      height: 250px;
-      &-bar{
-        height: 15%;
+  #wrapper{
+    position: relative;
+    width: 50%;
+    .animal{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0 auto;
+      border: 2px solid lightgray;
+      margin-bottom: 10px;
+      border-radius: 7px;
+      box-shadow: 0px 0px 10px;
+      &-menu{
         display: flex;
-        list-style: none;
         border-bottom: 1px solid lightgray;
-        &-fav{
-          color: black;
-        }
-        &-comment{
-          color: black;
-        }
-        &-share{
-          color: black;
-        }
-        &-collection{
-          color: black;
+        height: 50px;
+      }
+      &-photo{
+        margin: 10px;
+        &-link{
+          width: 100%;
+          display: inline-block;
+          &-pic{
+            padding-top:100%;
+            background-size: cover;
+            background-position: center;
+            border:1px solid lightgrey;
+            border-radius: 3px;
+          }
         }
       }
-      &-animal{
-        height: 25%;
-        padding-top: 8px;
-        &-text{
-          font-size: 18px;
-          text-decoration: underline;
+      &-info{
+        font-family: serif;
+        font-weight: bold;
+        overflow: scroll;
+        height: 100%;
+        &-bar{
+          height: 15%;
+          display: flex;
+          list-style: none;
+          border-bottom: 1px solid lightgray;
+          &-fav{
+            color: black;
+          }
+          &-comment{
+            color: black;
+          }
+          &-share{
+            color: black;
+          }
+          &-collection{
+            color: black;
+          }
+        }
+        &-animal{
+          padding-top: 8px;
+          &-text{
+            font-size: 18px;
+            text-decoration: underline;
+          }
+        }
+        &-habitat{
+          padding-top: 8px;
+          &-text{
+            font-size: 18px;
+            text-decoration: underline;
+          }
+        }
+        &-detail{
+          padding-top: 8px;
+          &-text{
+            font-size: 18px;
+            text-decoration: underline;
+          }
         }
       }
-      &-habitat{
-        height: 25%;
-        padding-top: 8px;
-        &-text{
-          font-size: 18px;
-          text-decoration: underline;
-        }
-      }
-      &-detail{
-        height: 50%;
-        padding-top: 8px;
-        &-text{
-          font-size: 18px;
-          text-decoration: underline;
-        }
+      .favbar{
+        display: flex;
+        width: 100%;
       }
     }
-    .favbar{
-      display: flex;
-      width: 100%;
-    }
+  }
+  #wrapper:before{
+    content:"";
+    display: block;
+    padding-top: 62.5%;
   }
 }
 .pagination{

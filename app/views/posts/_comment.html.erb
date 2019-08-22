@@ -12,7 +12,7 @@
       <h5 class="ml-3 mb-3">＜コメント一覧＞</h5>
       <% comments.each do |comment| %>
         <p class="ml-3">
-          <strong><%= link_to comment.user.name, "#" %>：</strong>
+          <strong><%= link_to comment.user.name, user_path(comment.user) %>：</strong>
           <%= comment.text %>
           <strong>
           <% if comment.user_id == current_user.id %>

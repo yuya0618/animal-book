@@ -9,11 +9,11 @@ $(function(){
   function buildHTML(comment){
     var html =`<p class="ml-3">
                 <strong>
-                  <a href="#">${comment.user_name}</a>
+                  <a href="/users/${comment.user_id}">${comment.user_name}</a>
                   ：
                 </strong>
                 ${comment.text}
-                <strong>   <a href= "", method: :delete, class="ml-5 text-danger">削除</a></strong>
+                <strong>   <a href= "/posts/${comment.post_id}/comments/${comment.id}", data-method="delete", class="ml-5 text-danger">削除</a></strong>
               </p>`
     return html;
   }
