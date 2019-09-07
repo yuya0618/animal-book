@@ -51,11 +51,5 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: db/production.postgresql
   pool: 5
 
-# production:
-#   <<: *default
-#   database: animal-book_production
-#   username: animal-book
-#   password: <%= ENV['ANIMAL-BOOK_DATABASE_PASSWORD'] %>
