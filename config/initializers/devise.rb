@@ -9,8 +9,8 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'e34532c2e54f5e3290184417296ad4953d5ac6c50b9d505c8609e4ee2c917fea5ecf60fbfadfac54478bbbbd3e3640d5bf7a400355f26d14c6db3e96a877e46c'
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
+  config.omniauth :facebook, Rails.application.credentials.facebook[:FACEBOOK_KEY], Rails.application.credentials.facebook[:FACEBOOK_SECRET]
+  config.omniauth :google_oauth2, Rails.application.credentials.google[:GOOGLE_CLIENT_ID], Rails.application.credentials.google[:GOOGLE_CLIENT_SECRET]
   config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET']
   OmniAuth.config.logger = Rails.logger if Rails.env.development? # debug用
 
