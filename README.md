@@ -38,6 +38,59 @@
 ・レスポンシブ向上  
 ・投稿時に野生or非野生マークをつける  
 
+# DB設計
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: false|
+|profile|text||
+|spot|string||
+|favorite|string||
+|icon|string||
+|provider|string||
+|uid|string||
+### Association
+- has_many :posts, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :liked_posts, through: :likes, source: :post
+- has_many :comments
+
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|animal|string|null: false|
+|image|string|null: false|
+|habitat|string|null: false|
+|detail|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+###Association
+- belongs_to :user
+- has_many :comments
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|detail|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|post_id|integer|null: false, foreign_key: true|
+###Association
+- belongs_to :user
+- belongs_to :post
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|post_id|integer|null: false, foreign_key: true|
+###Association
+- belongs_to :user
+- belongs_to :post
+
+
 # Author/作者
 https://www.wantedly.com/users/102386324  
 
