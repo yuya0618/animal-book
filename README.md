@@ -70,7 +70,7 @@ password:test1234
 |habitat|string|null: false|
 |detail|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-###Association
+### Association
 - belongs_to :user
 - has_many :comments
 
@@ -81,7 +81,7 @@ password:test1234
 |detail|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |post_id|integer|null: false, foreign_key: true|
-###Association
+### Association
 - belongs_to :user
 - belongs_to :post
 
@@ -90,7 +90,7 @@ password:test1234
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |post_id|integer|null: false, foreign_key: true|
-###Association
+### Association
 - belongs_to :user
 - belongs_to :post
 
